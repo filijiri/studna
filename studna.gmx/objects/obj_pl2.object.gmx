@@ -30,7 +30,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="39">
+    <event eventtype="5" enumb="68">
       <action>
         <libid>1</libid>
         <id>103</id>
@@ -52,7 +52,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="37">
+    <event eventtype="5" enumb="65">
       <action>
         <libid>1</libid>
         <id>103</id>

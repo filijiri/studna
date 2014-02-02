@@ -14,6 +14,7 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\obj_control</object>
     <object>objects\obj_pl</object>
     <object>objects\obj_background</object>
     <object>objects\object3</object>
@@ -22,6 +23,9 @@
   <rooms name="rooms">
     <room>rooms\room_well</room>
   </rooms>
+  <constants number="1">
+    <constant name="VIEW_MAIN">0</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

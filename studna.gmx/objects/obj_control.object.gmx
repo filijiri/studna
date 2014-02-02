@@ -65,7 +65,7 @@ var yavg = ysum / pl_num;
 var yview = yavg - view_hview[view_main] / 2;
 
 // Vertikalni pozice kamery ve svete (studni)
-view_yview[view_main] = yview;
+view_yview[view_main] = max(yview, view_yview[view_main]);
 
 </string>
           </argument>

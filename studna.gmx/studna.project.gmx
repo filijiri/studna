@@ -8,6 +8,10 @@
   <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_pl1</object>
+    <object>objects\obj_background</object>
+  </objects>
   <rooms name="rooms">
     <room>rooms\room_well</room>
   </rooms>

@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>pl = instance_find(obj_pl, 0);
 
-bg0 = background_create_gradient(room_width, room_height, 12632256, 0, 1);
 </string>
           </argument>
         </arguments>
@@ -98,8 +97,18 @@ bg0 = background_create_gradient(room_width, room_height, 12632256, 0, 1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// draw_ellipse_color(320-halfheight, 240+halfwidth, 320+halfheight, 240-halfwidth, 16711935, 4235519, false);
-draw_background(bg0, view_xview[0], view_yview[0]);
+            <string>var i = mouse_y
+
+var cx = 250 - power(.99, i)*250;
+var cz = log2(cx) - i;
+if (cz &lt; 0) {
+    cz = 0;
+}
+
+colTop = make_color_rgb(cx, cx, cx);
+colBottom = make_color_rgb(cz, cz, cz);
+
+draw_rectangle_color(view_xview[0], view_yview[0], room_width, room_height, colTop, colTop, colBottom, colBottom, false);
 </string>
           </argument>
         </arguments>

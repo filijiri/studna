@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pl = instance_find(obj_pl1, 0);
+            <string>pl = instance_find(obj_pl, 0);
 </string>
           </argument>
         </arguments>
@@ -132,12 +132,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_ellipse_color(320-halfheight, 240+halfwidth, 320+halfheight, 240-halfwidth, 16711935, 4235519, false);
-
-draw_primitive_begin(pr_trianglelist);
+            <string>draw_primitive_begin(pr_trianglestrip);
  draw_vertex(100, 100);
- draw_vertex(100, 200);
- draw_vertex(150, 150);
+ draw_vertex(50, 200);
+ draw_vertex(150, 200);
+ 
+ draw_vertex(75, 175);
+ draw_vertex(125, 175);
+ 
+
+
+ draw_primitive_end();
+ 
+ 
+ // The below code will draw three quarters of a circle made from primitives. 
+ var i, steps, xx, yy, radius;
+ steps=20;
+ xx=50;
+ yy=50;
+ radius=30;
+ draw_primitive_begin(pr_trianglefan);
+ draw_vertex(xx, yy);
+ for(i = 0; i &lt;= steps; i += 1)
+    {
+    draw_vertex(xx + lengthdir_x(radius, 270 * i / steps), yy + lengthdir_y(radius, 270 * i / steps));
+    }
  draw_primitive_end();
 </string>
           </argument>

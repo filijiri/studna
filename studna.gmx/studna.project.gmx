@@ -13,6 +13,9 @@
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_bezier.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_pl</object>
     <object>objects\obj_background</object>

@@ -11,9 +11,9 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -25,7 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>/// Set variables
+move_speed = 4;
+gravity_size = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>107</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_gravity</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>270</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -33,6 +57,8 @@
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,9 +75,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set variables
-move_speed = 2;
+            <string>/// Set gravity
+if (place_free(x, y + 1)) {
+    gravity = gravity_size;
+}
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Process collision
+move_outside_solid(90, 32);
+vspeed = 0;
+gravity = 0;
 </string>
           </argument>
         </arguments>
@@ -74,7 +128,7 @@ move_speed = 2;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>2</string>
+            <string>move_speed</string>
           </argument>
         </arguments>
       </action>
@@ -96,7 +150,7 @@ move_speed = 2;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>-2</string>
+            <string>-move_speed</string>
           </argument>
         </arguments>
       </action>

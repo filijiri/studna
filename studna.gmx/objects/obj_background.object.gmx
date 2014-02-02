@@ -25,10 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pl = instance_find(obj_pl1, 0);
+            <string>pl = instance_find(obj_pl, 0);
 
 bg0 = background_create_gradient(room_width, room_height, 12632256, 0, 1);
-
 </string>
           </argument>
         </arguments>

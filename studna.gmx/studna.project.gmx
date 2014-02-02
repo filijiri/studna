@@ -19,6 +19,8 @@
     <object>objects\obj_background</object>
     <object>objects\object3</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_pl1</object>
+    <object>objects\obj_pl2</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_well</room>

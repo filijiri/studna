@@ -110,7 +110,8 @@ if (place_free(x, y + 1)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - 64) {
+            <string>/// Warp up if too low
+if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - 64) {
     y = view_yview[VIEW_MAIN];
 }
 

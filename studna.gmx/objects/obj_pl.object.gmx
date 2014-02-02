@@ -113,7 +113,7 @@ if (place_free(x, y + 1)) {
           <argument>
             <kind>1</kind>
             <string>/// Warp up if too low
-if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - 64) {
+if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
     pl_score++;
     y = view_yview[VIEW_MAIN];
 }

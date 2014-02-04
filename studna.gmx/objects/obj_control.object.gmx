@@ -92,7 +92,7 @@ view_yview[view_main] = max(yview, view_yview[view_main]);
           <argument>
             <kind>1</kind>
             <string>/// Generate level layout
-while (view_yview[view_main] + view_hview[view_main] &gt;= y_generate) {
+while (view_yview[view_main] + view_hview[view_main] + 16 &gt;= y_generate) {
     spawn_wall(0, y_generate);
     spawn_wall(room_width, y_generate);
     for (var i = 0; i &lt; 1; i++) {

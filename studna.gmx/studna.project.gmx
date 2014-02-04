@@ -21,8 +21,10 @@
     <objects name="ctrl">
       <object>objects\obj_control</object>
       <object>objects\obj_ctrl_hotkeys</object>
-      <object>objects\obj_background</object>
+    </objects>
+    <objects name="draw">
       <object>objects\obj_ctrl_rim</object>
+      <object>objects\obj_background</object>
     </objects>
     <objects name="pl">
       <object>objects\obj_pl</object>

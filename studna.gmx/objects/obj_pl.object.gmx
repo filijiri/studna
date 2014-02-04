@@ -27,19 +27,25 @@
             <kind>1</kind>
             <string>/// Set variables
 
-move_speed_pps = MOVE_SPEED; // pixels per second
-move_speed = move_speed_pps / room_speed;
-
-gravity_size_pps = GRAVITY_SIZE;
-gravity_size = gravity_size_pps / room_speed;
-
-maxvspeed_pps = MAXVSPEED;
-maxvspeed = maxvspeed_pps / room_speed;
+move_speed = MOVE_SPEED / room_speed;
+gravity_size = GRAVITY_SIZE / room_speed;
 
 pl_score = 0;
 
 key_left = vk_left;
 key_right = vk_right;
+key_left_pressed = false;
+key_right_pressed = false;
+
+vspeed_init = VSPEED_INIT / room_speed;
+vspeed_step = VSPEED_STEP / room_speed;
+vspeed_max = VSPEED_MAX / room_speed;
+
+standing = true;
+
+ai = false;
+ai_key = false;
+
 key_left_pressed = false;
 key_right_pressed = false;
 
@@ -75,6 +81,26 @@ key_right_pressed = false;
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Descent</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -89,12 +115,15 @@ key_right_pressed = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set gravity
+            <string>/// Check ground
 if (place_free(x, y + 1)) {
-    gravity = gravity_size;
-    if (vspeed &gt; maxvspeed) {
-        vspeed = maxvspeed;
+    if (standing) {
+        standing = false;
+        gravity = gravity_size;
+        vspeed = vspeed_init;
     }
+} else {
+    standing = true;
 }
 
 </string>
@@ -121,6 +150,182 @@ if (place_free(x, y + 1)) {
 if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
     pl_score++;
     y = view_yview[VIEW_MAIN];
+    vspeed += vspeed_step;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Cap vspeed at vspeed_max
+if (vspeed &gt; vspeed_max) {
+    vspeed = vspeed_max;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Control</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Key presses
+if (keyboard_check_pressed(key_left)) {
+    key_left_pressed = true;
+}
+if (keyboard_check_pressed(key_right)) {
+    key_right_pressed = true;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Key releases
+if (keyboard_check_released(key_left)) {
+    key_left_pressed = false;
+}
+if (keyboard_check_released(key_right)) {
+    key_right_pressed = false;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// AI
+if (ai) {
+    if (random(1) &gt;= 0.99) {
+        ai_key = !ai_key;
+    }
+    if (!ai_key) {
+        key_left_pressed = true;
+        key_right_pressed = false;
+    } else {
+        key_right_pressed = true;
+        key_left_pressed = false;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Movement
+var new_x;
+var update_x = false;
+
+if (key_left_pressed &amp;&amp; !key_right_pressed) {
+    new_x = x - move_speed;
+    update_x = true;    
+}
+
+if (key_right_pressed &amp;&amp; !key_left_pressed) {
+    new_x = x + move_speed;
+    update_x = true;
+}
+
+if (update_x) {
+    if (place_free(new_x, y)) {
+        x = new_x;
+    }
 }
 
 </string>
@@ -149,7 +354,7 @@ if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
           </argument>
           <argument>
             <kind>0</kind>
-            <string>maxvspeed</string>
+            <string>vspeed_max</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -173,54 +378,10 @@ if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Process collision
+            <string>/// Stop falling
 vspeed = 0;
 gravity = 0;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Handle key
-var key_left_pressed = keyboard_check(key_left);
-var key_right_pressed = keyboard_check(key_right);
-
-var new_x;
-var update_x = false;
-
-if (key_left_pressed &amp;&amp; !key_right_pressed) {
-    new_x = x - move_speed;
-    update_x = true;    
-}
-
-if (key_right_pressed &amp;&amp; !key_left_pressed) {
-    new_x = x + move_speed;
-    update_x = true;
-}
-
-if (update_x) {
-    if (place_free(new_x, y)) {
-        x = new_x;
-    }
-}
+standing = true;
 
 </string>
           </argument>

@@ -23,7 +23,7 @@
       <object>objects\obj_ctrl_hotkeys</object>
     </objects>
     <objects name="draw">
-      <object>objects\obj_ctrl_rim</object>
+      <object>objects\obj_draw_rim</object>
       <object>objects\obj_background</object>
     </objects>
     <objects name="pl">

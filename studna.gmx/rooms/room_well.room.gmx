@@ -56,7 +56,7 @@
     <instance objName="obj_control" x="0" y="0" name="inst_7C83C396" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pl1" x="48" y="64" name="inst_967A6393" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pl2" x="592" y="64" name="inst_7FF17ED6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_fullscreen" x="16" y="0" name="inst_B95940CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_hotkeys" x="16" y="0" name="inst_B95940CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

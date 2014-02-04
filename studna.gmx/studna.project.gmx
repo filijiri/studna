@@ -20,7 +20,7 @@
   <objects name="objects">
     <objects name="ctrl">
       <object>objects\obj_control</object>
-      <object>objects\obj_ctrl_fullscreen</object>
+      <object>objects\obj_ctrl_hotkeys</object>
       <object>objects\obj_background</object>
     </objects>
     <objects name="pl">

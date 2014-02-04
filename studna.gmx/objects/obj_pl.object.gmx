@@ -38,6 +38,11 @@ maxvspeed = maxvspeed_pps / room_speed;
 
 pl_score = 0;
 
+key_left = vk_left;
+key_right = vk_right;
+key_left_pressed = false;
+key_right_pressed = false;
+
 </string>
           </argument>
         </arguments>
@@ -237,6 +242,70 @@ gravity = 0;
           <argument>
             <kind>0</kind>
             <string>y</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle key press
+if (keyboard_check_pressed(key_left)) {
+    key_left_pressed = true;
+}
+if (keyboard_check_pressed(key_right)) {
+    key_right_pressed = true;
+}
+
+update_speed(key_left_pressed, key_right_pressed, move_speed);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle key release
+if (keyboard_check_released(key_left)) {
+    key_left_pressed = false;
+}
+if (keyboard_check_released(key_right)) {
+    key_right_pressed = false;
+}
+
+update_speed(key_left_pressed, key_right_pressed, move_speed);
+
+</string>
           </argument>
         </arguments>
       </action>

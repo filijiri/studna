@@ -16,6 +16,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_wall.gml</script>
+    <script>scripts\update_speed.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="ctrl">

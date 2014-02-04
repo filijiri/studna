@@ -30,7 +30,7 @@ view_main = VIEW_MAIN;
 
 y_generate = 0;
 
-global.rim_h = 64;
+global.rim_h = RIM_H;
 
 </string>
           </argument>

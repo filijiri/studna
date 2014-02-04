@@ -37,8 +37,12 @@
   <rooms name="rooms">
     <room>rooms\room_well</room>
   </rooms>
-  <constants number="1">
+  <constants number="5">
     <constant name="VIEW_MAIN">0</constant>
+    <constant name="MOVE_SPEED">120</constant>
+    <constant name="GRAVITY_SIZE">7.5</constant>
+    <constant name="MAXVSPEED">480</constant>
+    <constant name="RIM_H">64</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

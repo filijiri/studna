@@ -27,13 +27,13 @@
             <kind>1</kind>
             <string>/// Set variables
 
-move_speed_pps = 120; // pixels per second
+move_speed_pps = MOVE_SPEED; // pixels per second
 move_speed = move_speed_pps / room_speed;
 
-gravity_size_pps = 7.5;
+gravity_size_pps = GRAVITY_SIZE;
 gravity_size = gravity_size_pps / room_speed;
 
-maxvspeed_pps = 480;
+maxvspeed_pps = MAXVSPEED;
 maxvspeed = maxvspeed_pps / room_speed;
 
 pl_score = 0;

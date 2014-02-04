@@ -18,8 +18,11 @@
     <script>scripts\spawn_wall.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_control</object>
-    <object>objects\obj_background</object>
+    <objects name="ctrl">
+      <object>objects\obj_control</object>
+      <object>objects\obj_ctrl_fullscreen</object>
+      <object>objects\obj_background</object>
+    </objects>
     <objects name="pl">
       <object>objects\obj_pl</object>
       <object>objects\obj_pl1</object>

@@ -71,6 +71,75 @@ key_right_pressed = false;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set up particle emitter
+
+// System
+part_system_id = part_system_create();
+part_system_depth(part_system_id, 100000);
+
+// Particle type
+part_type_id = part_type_create();
+part_type_shape(part_type_id, pt_shape_disk);
+part_type_scale(part_type_id, 0.25, 0.25);
+part_type_size(part_type_id, 1, 1, 8 / room_speed, 0);
+part_type_gravity(part_type_id, 16 / room_speed, 90);
+part_type_color1(part_type_id, c_gray);
+part_type_alpha2(part_type_id, 1, 0);
+part_type_life(part_type_id, 0.5 * room_speed, 0.5 * room_speed);
+
+// Emitter
+part_emitter_id = part_emitter_create(part_system_id);
+part_emitter_region(part_system_id, part_emitter_id, x - 4, x + 4, y - 4, y + 4,
+    ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(part_system_id, part_emitter_id, part_type_id,
+    60 / room_speed);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Clean up particle emitter
+part_type_destroy(part_type_id);
+part_emitter_destroy(part_system_id, part_emitter_id);
+part_system_destroy(part_system_id);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -122,6 +191,30 @@ if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
     pl_score++;
     y = view_yview[VIEW_MAIN];
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move particle emitter
+part_emitter_region(part_system_id, part_emitter_id, x, x, y, y,
+    ps_shape_rectangle, ps_distr_linear);
 
 </string>
           </argument>

@@ -37,7 +37,7 @@
   <rooms name="rooms">
     <room>rooms\room_well</room>
   </rooms>
-  <constants number="7">
+  <constants number="8">
     <constant name="VIEW_MAIN">0</constant>
     <constant name="MOVE_SPEED">240</constant>
     <constant name="GRAVITY_SIZE">15</constant>
@@ -45,6 +45,7 @@
     <constant name="VSPEED_INIT">0</constant>
     <constant name="VSPEED_STEP">60</constant>
     <constant name="VSPEED_MAX">960</constant>
+    <constant name="EVENT_CONTROL_PL_DESTROY">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

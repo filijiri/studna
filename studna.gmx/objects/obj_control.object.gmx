@@ -25,12 +25,86 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Register as a global variable
+
+global.control = self;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Set variables
 view_main = VIEW_MAIN;
 
 y_generate = 0;
 
 global.rim_h = RIM_H;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create player map
+
+pl_map = ds_map_create();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy player map
+
+ds_map_destroy(pl_map);
 
 </string>
           </argument>
@@ -59,19 +133,22 @@ global.rim_h = RIM_H;
 var ysum = 0;
 
 var pl_num = instance_number(obj_pl);
-var maxy = view_yview[view_main] + view_hview[view_main] - global.rim_h - 16;
-for (var i = 0; i &lt; pl_num; i++) {
-    var inst = instance_find(obj_pl, i);
-    var y_capped = min(inst.y, maxy);
-    ysum += y_capped;
+
+if (pl_num &gt;= 1) {
+    var maxy = view_yview[view_main] + view_hview[view_main] - global.rim_h - 16;
+    for (var i = 0; i &lt; pl_num; i++) {
+        var inst = instance_find(obj_pl, i);
+        var y_capped = min(inst.y, maxy);
+        ysum += y_capped;
+    }
+    
+    var yavg = ysum / pl_num;
+    
+    var yview = yavg - view_hview[view_main] / 2;
+    
+    // Vertikalni pozice kamery ve svete (studni)
+    view_yview[view_main] = max(yview, view_yview[view_main]);
 }
-
-var yavg = ysum / pl_num;
-
-var yview = yavg - view_hview[view_main] / 2;
-
-// Vertikalni pozice kamery ve svete (studni)
-view_yview[view_main] = max(yview, view_yview[view_main]);
 
 </string>
           </argument>
@@ -106,6 +183,95 @@ while (view_yview[view_main] + view_hview[view_main] + 16 &gt;= y_generate) {
         }
     }
     y_generate += 32;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Player destroyed</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Unregister non-existing players
+
+var size = ds_map_size(pl_map);
+var key = ds_map_find_first(pl_map);
+for (var i = 0; i &lt; size - 1; i ++) {
+    var inst_id = ds_map_find_value(pl_map, key);
+    if (!instance_exists(inst_id)) {
+        ds_map_delete(pl_map, key);
+    }
+    key = ds_map_find_next(pl_map, key);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Add a player
+
+if (!ds_map_exists(pl_map, keyboard_key)) {
+    var inst_x = 320;
+    var inst_y = view_yview[VIEW_MAIN];
+    var inst_id = instance_create(inst_x, inst_y, obj_pl);
+    with (inst_id) {
+        key_left = keyboard_key;
+        onebutton = true;
+    }
+    ds_map_add(pl_map, keyboard_key, inst_id);
 }
 
 </string>

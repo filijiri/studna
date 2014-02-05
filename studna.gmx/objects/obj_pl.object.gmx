@@ -65,6 +65,7 @@ ai_key = false;
             <string>/// Individual configuration variables
 key_left = vk_left;
 key_right = vk_right;
+onebutton = false;
 pl_color = c_red;
 ai = false;
 
@@ -160,6 +161,32 @@ part_emitter_stream(part_system_id, part_emitter_id, part_type_id,
 part_type_destroy(part_type_id);
 part_emitter_destroy(part_system_id, part_emitter_id);
 part_system_destroy(part_system_id);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call control object
+
+with (global.control) {
+    event_user(EVENT_CONTROL_PL_DESTROY);
+}
 
 </string>
           </argument>
@@ -405,16 +432,25 @@ if (ai) {
 var new_x;
 var update_x = false;
 
-if (key_left_pressed &amp;&amp; !key_right_pressed) {
-    new_x = x - move_speed;
-    update_x = true;    
-}
-
-if (key_right_pressed &amp;&amp; !key_left_pressed) {
-    new_x = x + move_speed;
+if (!onebutton) {
+    if (key_left_pressed &amp;&amp; !key_right_pressed) {
+        new_x = x - move_speed;
+        update_x = true;    
+    }
+    
+    if (key_right_pressed &amp;&amp; !key_left_pressed) {
+        new_x = x + move_speed;
+        update_x = true;
+    }
+} else {
+    if (key_left_pressed) {
+        new_x = x - move_speed;
+    } else {
+        new_x = x + move_speed;
+    }
     update_x = true;
 }
-
+    
 if (update_x) {
     var limit_left = 16 + sprite_xoffset;
     var limit_right = room_width - 16 - (sprite_width - sprite_xoffset);

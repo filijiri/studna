@@ -29,25 +29,44 @@
 
 move_speed = MOVE_SPEED / room_speed;
 gravity_size = GRAVITY_SIZE / room_speed;
-
-pl_score = 0;
-
-key_left = vk_left;
-key_right = vk_right;
-key_left_pressed = false;
-key_right_pressed = false;
-
 vspeed_init = VSPEED_INIT / room_speed;
 vspeed_step = VSPEED_STEP / room_speed;
 vspeed_max = VSPEED_MAX / room_speed;
 
-standing = true;
-
-ai = false;
-ai_key = false;
+pl_score = 0;
 
 key_left_pressed = false;
 key_right_pressed = false;
+
+standing = true;
+
+ai_key = false;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Individual configuration variables
+key_left = vk_left;
+key_right = vk_right;
+pl_color = c_red;
+ai = false;
 
 </string>
           </argument>
@@ -399,10 +418,10 @@ if (key_right_pressed &amp;&amp; !key_left_pressed) {
 if (update_x) {
     var limit_left = 16 + sprite_xoffset;
     var limit_right = room_width - 16 - (sprite_width - sprite_xoffset);
-    if ((new_x &gt;= limit_left) &amp;&amp; (new_x &lt; limit_right)) { // cheap
-        if (place_free(new_x, y)) { // expensive (?)
-            x = new_x;
-        }
+    new_x = max(new_x, limit_left);
+    new_x = min(new_x, limit_right);
+    if (place_free(new_x, y)) {
+        x = new_x;
     }
 }
 
@@ -524,6 +543,34 @@ standing = true;
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw an arrow if too high
+if (y &lt;= view_yview[VIEW_MAIN]) {
+    draw_set_color(pl_color);
+    var y2 = max(view_yview[VIEW_MAIN], y - sprite_yoffset + sprite_height);
+    var y1 = y2 + 16;
+    draw_arrow(x, y1, x, y2, 12);
+}
+
+</string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>

@@ -42,8 +42,9 @@
             <string>/// Set variables
 key_left = ord("A");
 key_right = ord("D");
+pl_color = c_yellow;
 
-ai = true;
+//ai = true;
 
 </string>
           </argument>

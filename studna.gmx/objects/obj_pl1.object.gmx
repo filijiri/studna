@@ -42,6 +42,7 @@
             <string>/// Set variables
 key_left = vk_left;
 key_right = vk_right;
+pl_color = c_red;
 
 </string>
           </argument>

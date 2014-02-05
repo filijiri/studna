@@ -218,7 +218,7 @@ if (place_free(x, y + 1)) {
             <string>/// Warp up if too low
 if (y &gt;= view_yview[VIEW_MAIN] + view_hview[VIEW_MAIN] - global.rim_h - 16) {
     pl_score++;
-    y = view_yview[VIEW_MAIN];
+    y = view_yview[VIEW_MAIN] - 16 - 32;
     vspeed += vspeed_step;
 }
 
@@ -397,8 +397,12 @@ if (key_right_pressed &amp;&amp; !key_left_pressed) {
 }
 
 if (update_x) {
-    if (place_free(new_x, y)) {
-        x = new_x;
+    var limit_left = 16 + sprite_xoffset;
+    var limit_right = room_width - 16 - (sprite_width - sprite_xoffset);
+    if ((new_x &gt;= limit_left) &amp;&amp; (new_x &lt; limit_right)) { // cheap
+        if (place_free(new_x, y)) { // expensive (?)
+            x = new_x;
+        }
     }
 }
 

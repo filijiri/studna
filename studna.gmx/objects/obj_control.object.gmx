@@ -59,9 +59,11 @@ global.rim_h = RIM_H;
 var ysum = 0;
 
 var pl_num = instance_number(obj_pl);
+var maxy = view_yview[view_main] + view_hview[view_main] - global.rim_h - 16;
 for (var i = 0; i &lt; pl_num; i++) {
     var inst = instance_find(obj_pl, i);
-    ysum += inst.y;
+    var y_capped = min(inst.y, maxy);
+    ysum += y_capped;
 }
 
 var yavg = ysum / pl_num;

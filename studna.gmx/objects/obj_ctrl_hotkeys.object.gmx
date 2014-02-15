@@ -8,107 +8,58 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="9" enumb="115">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>531</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_fullscreen</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>1</kind>
-            <string>/// Set variables
-view_main = VIEW_MAIN;
-
-y_generate = 0;
-
-global.rim_h = RIM_H;
-
-</string>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="9" enumb="113">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>331</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_restart_game</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Update vertical position of camera
-
-var ysum = 0;
-
-var pl_num = instance_number(obj_pl);
-for (var i = 0; i &lt; pl_num; i++) {
-    var inst = instance_find(obj_pl, i);
-    ysum += inst.y;
-}
-
-var yavg = ysum / pl_num;
-
-var yview = yavg - view_hview[view_main] / 2;
-
-// Vertikalni pozice kamery ve svete (studni)
-view_yview[view_main] = max(yview, view_yview[view_main]);
-
-</string>
-          </argument>
-        </arguments>
       </action>
+    </event>
+    <event eventtype="9" enumb="27">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>332</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_end_game</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Generate level layout
-var n = room_width / 16 - 3;
-
-while (view_yview[view_main] + view_hview[view_main] + 16 &gt;= y_generate) {
-    spawn_wall(0, y_generate);
-    spawn_wall(room_width, y_generate);
-    if (y_generate &gt;= 4 * 32) {
-        for (var i = 0; i &lt; 1; i++) {
-            var x_generate = 32 + irandom(n - 1) * 16;
-            spawn_wall(x_generate, y_generate);
-        }
-    }
-    y_generate += 32;
-}
-
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>

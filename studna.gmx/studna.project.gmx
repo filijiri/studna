@@ -11,7 +11,6 @@
       <sprite>sprites\spr_pl_yellow</sprite>
     </sprites>
     <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_platform</sprite>
     <sprites name="ctrl">
       <sprite>sprites\spr_ctrl_main</sprite>
       <sprite>sprites\spr_ctrl_hotkeys</sprite>
@@ -39,7 +38,6 @@
       <object>objects\obj_pl2</object>
     </objects>
     <object>objects\obj_wall</object>
-    <object>objects\obj_platform</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_well</room>

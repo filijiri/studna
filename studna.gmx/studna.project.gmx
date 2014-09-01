@@ -9,6 +9,7 @@
     <sprite>sprites\spr_pl_red</sprite>
     <sprite>sprites\spr_pl_yellow</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_platform</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -33,6 +34,7 @@
     </objects>
     <object>objects\obj_wall</object>
     <object>objects\object3</object>
+    <object>objects\obj_platform</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_well</room>

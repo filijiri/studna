@@ -38,6 +38,7 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_controller_arrows</object>
       <object>objects\obj_controller_asd</object>
+      <object>objects\obj_controller_jkl</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -13,7 +13,7 @@ Controls
 ### Players
 Red player: left and right arrow keys to move, down to start
 
-Yellow player: A and D, S to start
+Yellow player: A and D to move, S to start
 
 Blue player: J and L to move, K to start
 

@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bg0 = background_create_gradient(room_width, room_height, 12632256, 0, 1);
+            <string>/// Initialize background image
+
+bg0 = background_create_gradient(room_width, room_height, 12632256, 0, 1);
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_background(bg0, view_xview[0], view_yview[0]);
+            <string>/// Draw background image
+
+draw_background(bg0, view_xview[0], view_yview[0]);
 </string>
           </argument>
         </arguments>

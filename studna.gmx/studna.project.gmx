@@ -39,7 +39,6 @@
       <object>objects\obj_pl2</object>
     </objects>
     <object>objects\obj_wall</object>
-    <object>objects\object3</object>
     <object>objects\obj_platform</object>
   </objects>
   <rooms name="rooms">

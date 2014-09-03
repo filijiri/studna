@@ -32,6 +32,60 @@ player = noone;
 colour = c_white;
 
 movement = 0;
+
+enum start_actions {
+    none,
+    join,
+    leave
+}
+
+start_action = start_actions.none;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update
+
+switch (start_action) {
+    case start_actions.join:
+        assert(player == noone);
+        y = view_yview[VIEW_MAIN];
+        var halfwidth = sprite_width / 2;
+        x = random_range(16 + halfwidth, room_width - 16 - halfwidth);
+        player = instance_create(x, y, obj_pl);
+        with (player) {
+            controller = other.id;
+            pl_color = other.colour;
+        }
+        break;
+    case start_actions.leave:
+        assert(player != noone);
+        with (player) {
+            instance_destroy();
+        }
+        player = noone;
+        break;
+}
+
+start_action = start_actions.none;
 </string>
           </argument>
         </arguments>

@@ -6,10 +6,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="pl">
-      <sprite>sprites\spr_pl_red</sprite>
-      <sprite>sprites\spr_pl_yellow</sprite>
-    </sprites>
+    <sprite>sprites\spr_pl</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprites name="icon">
       <sprites name="ctrl">
@@ -27,6 +24,7 @@
     <script>scripts\spawn_wall.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\obj_pl</object>
     <objects name="ctrl">
       <object>objects\obj_control</object>
       <object>objects\obj_ctrl_hotkeys</object>
@@ -35,17 +33,17 @@
       <object>objects\obj_draw_rim</object>
       <object>objects\obj_background</object>
     </objects>
-    <objects name="pl">
-      <object>objects\obj_pl</object>
-      <object>objects\obj_pl1</object>
-      <object>objects\obj_pl2</object>
-    </objects>
     <object>objects\obj_wall</object>
+    <objects name="controller">
+      <object>objects\obj_controller</object>
+      <object>objects\obj_controller_arrows</object>
+      <object>objects\obj_controller_asd</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_well</room>
   </rooms>
-  <constants number="8">
+  <constants number="9">
     <constant name="VIEW_MAIN">0</constant>
     <constant name="MOVE_SPEED">240</constant>
     <constant name="GRAVITY_SIZE">15</constant>
@@ -54,6 +52,7 @@
     <constant name="VSPEED_STEP">60</constant>
     <constant name="VSPEED_MAX">960</constant>
     <constant name="EVENT_CONTROL_PL_DESTROY">0</constant>
+    <constant name="NOKEY">-1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

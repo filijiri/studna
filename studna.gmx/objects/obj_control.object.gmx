@@ -146,7 +146,7 @@ if (pl_num &gt;= 1) {
     
     var yview = yavg - view_hview[view_main] / 2;
     
-    // Vertikalni pozice kamery ve svete (studni)
+    // Vertical position of the camera in the room (i.e. the well)
     view_yview[view_main] = max(yview, view_yview[view_main]);
 }
 

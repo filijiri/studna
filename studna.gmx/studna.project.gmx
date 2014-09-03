@@ -22,6 +22,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_wall.gml</script>
+    <script>scripts\assert.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_pl</object>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Register as a global variable
 
-global.control = self;
+global.control = id;
 
 </string>
           </argument>

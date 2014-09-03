@@ -138,7 +138,6 @@ if (keyboard_check_pressed(key_start))
     // Join or leave the game
     if (player == noone)
         {
-        show_debug_message("Join the game!");
         y = view_yview[VIEW_MAIN];
         var halfwidth = sprite_width / 2;
         x = random_range(16 + halfwidth, room_width - 16 - halfwidth);
@@ -151,7 +150,6 @@ if (keyboard_check_pressed(key_start))
         }
     else
         {
-        show_debug_message("Leave the game!");
         with (player)
             {
             instance_destroy();

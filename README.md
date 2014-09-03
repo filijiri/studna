@@ -11,11 +11,11 @@ Controls
 --------
 
 ### Players
-Red player: left and right to move, down to start
+Red player: left and right to move, down to join
 
-Yellow player: A and D to move, S to start
+Yellow player: A and D to move, S to join
 
-Blue player: J and L to move, K to start
+Blue player: J and L to move, K to join
 
 ### Hotkeys
 Esc: quit the game

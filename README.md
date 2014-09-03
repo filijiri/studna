@@ -1,16 +1,16 @@
 studna
 ======
-studna is a race to the bottom of an endless pit for two friends.
+studna is a race to the bottom of an endless pit for a group of friends.
 
 Setup
 -----
-Use GameMaker: Studio 1.2 Free Licence to run or modify the game.
-
-GameMaker: Studio is available from:
-https://www.yoyogames.com/studio
+Use [GameMaker: Studio](https://www.yoyogames.com/studio) Standard
+version 1.3.1380 or newer to run or modify the game.
 
 Controls
 --------
-Left player: left and right arrow keys
+Red player: left and right arrow keys to move, down to start
 
-Right player: A and D
+Yellow player: A and D, S to start
+
+Blue player: J and L to move, K to start

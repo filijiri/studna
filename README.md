@@ -18,9 +18,9 @@ Yellow player: A and D to move, S to join
 Blue player: J and L to move, K to join
 
 ### Hotkeys
-Esc: quit the game
+Esc: quit
 
-F2: reset the game
+F2: reset
 
 F4: toggle fullscreen
 
